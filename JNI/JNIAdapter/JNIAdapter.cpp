@@ -160,7 +160,8 @@ JNIEXPORT void JNICALL Java_com_caoym_WinRobot_mouseRelease
 JNIEXPORT void JNICALL Java_com_caoym_WinRobot_mouseWheel
 (JNIEnv *env , jobject jthis, jint wheelAmt)
 {
-	CWinRobotJNIAdapter::GetThis(env,jthis)->mouseWheel(wheelAmt);
+	// we invert the wheelAmt to correct issue #1
+	CWinRobotJNIAdapter::GetThis(env,jthis)->mouseWheel(-wheelAmt);
 }
 
 /*
